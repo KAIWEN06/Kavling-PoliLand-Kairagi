@@ -1,0 +1,324 @@
+:root {
+  --primary: #3a4e43;
+  --accent: #a7b18e;
+  --light: #d9d9d9;
+  --dark: #1f2937;
+  --wa: #25d366;
+}
+
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inria Serif", serif;
+  background: var(--light);
+  color: var(--dark);
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  background: #2f4036;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.navbar .logo {
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.btn-wa {
+  background: var(--wa);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* ================= HERO (FULL SCREEN FIX) ================= */
+.hero {
+  position: relative;
+  min-height: 100vh; /* FIX: full layar */
+  width: 100%;
+  background-image: url("/assets/foto/WhatsApp Image 2025-12-19 at 18.23.27_60c08b89.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center; /* vertikal tengah */
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(58,78,67,0.85),
+    rgba(58,78,67,0.65),
+    rgba(58,78,67,0.9)
+  );
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+/* LOGO */
+.hero-logo {
+  width: 160px;
+  margin-bottom: 12px;
+}
+
+/* TEXT */
+.hero-content h2 {
+  font-size: 2.4rem;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+/* BUTTON PRIMARY */
+.btn-primary {
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--wa);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ================= FEATURES ================= */
+.features {
+  padding: 100px 0;
+  background: white;
+}
+
+.features-title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 80px;
+  color: var(--primary);
+}
+
+.feature-item {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.feature-item.reverse {
+  direction: rtl;
+}
+
+.feature-item.reverse .feature-content {
+  direction: ltr;
+}
+
+.feature-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.feature-content h4 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+
+.feature-content p {
+  line-height: 1.8;
+}
+
+/* BUTTON SECONDARY */
+.btn-secondary {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 22px;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ================= SITEPLAN ================= */
+.siteplan {
+  padding: 100px 0;
+  background: #f5f6f4;
+  text-align: center;
+}
+
+.siteplan-title {
+  font-size: 2.4rem;
+  color: var(--primary);
+}
+
+.siteplan-subtitle {
+  max-width: 700px;
+  margin: 12px auto 40px;
+}
+
+.siteplan-wrapper {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.siteplan-wrapper img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.siteplan-note {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.sold-label {
+  background: #c0392b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+
+/* ================= CTA ================= */
+.cta {
+  padding: 80px 0;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #2f4036;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-title {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-social i {
+  color: var(--accent);
+}
+
+/* FLOATING WA */
+.wa-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--wa);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (min-width: 768px) {
+  .feature-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-content h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-logo {
+    width: 120px;
+    margin-bottom: 8px;
+  }
+
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+    max-width: 90%;
+  }
+
+  .features {
+    padding: 64px 0;
+  }
+
+  .features-title {
+    font-size: 2rem;
+    margin-bottom: 48px;
+  }
+
+  .footer-social span {
+    display: none;
+  }
+}

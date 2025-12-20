@@ -1,0 +1,96 @@
+/* ================= DOCUMENTATION (ULTRA REFINED) ================= */
+.documentation {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+/* FOTO UTAMA – JAUH LEBIH KECIL */
+.doc-hero {
+  max-width: 560px;      /* reduced from 720 to make hero image smaller */
+  margin: 0 auto 32px;
+}
+
+.doc-hero img {
+  width: 100%;
+  height: auto; /* allow image to scale with width */
+  max-height: 420px; /* cap very tall images on wide screens */
+  border-radius: 16px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+/* DESKRIPSI */
+.doc-desc {
+  max-width: 680px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.doc-desc h3 {
+  font-size: 1.85rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.doc-desc p {
+  line-height: 1.75;
+  font-size: 0.98rem;
+  color: var(--dark);
+}
+
+.doc-date {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 14px;
+  background: var(--accent);
+  color: #2f4036;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* GALERI – LEBIH HALUS */
+.doc-gallery {
+  display: grid;
+  gap: 18px;
+  max-width: 680px;      /* reduced for tighter layout */
+  margin: 0 auto;
+}
+
+.doc-gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* keeps thumbnails consistent and responsive */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .doc-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+
+  .documentation {
+    padding: 56px 0;
+  }
+
+  .doc-hero {
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .doc-desc h3 {
+    font-size: 1.5rem;
+  }
+
+  .doc-desc p {
+    font-size: 0.95rem;
+  }
+
+  .doc-gallery img {
+    aspect-ratio: 4 / 3; /* a bit taller on phones for readability */
+  }
+}
