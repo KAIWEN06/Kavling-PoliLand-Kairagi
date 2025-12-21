@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/foto/Header/logo header.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/foto/Header/logo header.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/foto/Header/logo header.png">
-    <meta name="theme-color" content="#2f4036">
 
     <title>POLILAND Kairagi | Tanah Kavling Strategis & Legal</title>
     <meta name="description"
@@ -52,6 +47,49 @@
             <a href="https://wa.me/6281356960253" class="btn-primary">
                 Konsultasi WhatsApp
             </a>
+        </div>
+    </section>
+
+    <!-- LOCATION SLIDER -->
+    <section class="location-slider">
+        <div class="container">
+
+            <h3 class="slider-title">Lokasi Poliland Kairagi</h3>
+            <p class="slider-subtitle">
+                Gambaran langsung lokasi dan lingkungan sekitar kavling Poliland Kairagi.
+            </p>
+
+            <div class="slider-wrapper" id="slider">
+                <div class="slide-track">
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/DSCF0390.jpg" alt="Lokasi Poliland Kairagi">
+                    </div>
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/DSCF0399.jpg" alt="Akses jalan Poliland">
+                    </div>
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/DSCF0401.jpg" alt="Lingkungan sekitar Poliland">
+                    </div>
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/DSCF0407.jpg" alt="Area kavling Poliland">
+                    </div>
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/DSCF0413.jpg" alt="Area kavling Poliland">
+                    </div>
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/IMG-20251219-WA0030.jpg" alt="Area kavling Poliland">
+                    </div>
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/org_13bb04ae5bedad6f_1766205330000.jpg"
+                            alt="Area kavling Poliland">
+                    </div>
+                    <div class="slide">
+                        <img src="/assets/foto/SLIDE/org_d4e9c54188ee1e6b_1766205092000.jpg"
+                            alt="Area kavling Poliland">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -131,7 +169,7 @@
             </p>
 
             <div class="siteplan-wrapper">
-                <img src="assets/foto/terjual/IMG-20251221-WA0000.jpg"
+                <img src="/assets/foto/terjual/WhatsApp Image 2025-12-19 at 18.23.29_5306a5c6.jpg"
                     alt="Peta kavling Poliland Kairagi dan status unit terjual">
             </div>
 
@@ -196,6 +234,46 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <script>
+        const track = document.querySelector(".slide-track");
+        const slides = document.querySelectorAll(".slide");
+        let index = 0;
+        let startX = 0;
+        let isDragging = false;
+
+        function moveSlide() {
+            index = (index + 1) % slides.length;
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        // Auto slide
+        let sliderInterval = setInterval(moveSlide, 4000);
+
+        // Touch events (swipe)
+        track.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            clearInterval(sliderInterval);
+        });
+
+        track.addEventListener("touchend", (e) => {
+            if (!isDragging) return;
+            let endX = e.changedTouches[0].clientX;
+            let diff = startX - endX;
+
+            if (diff > 50) {
+                index = (index + 1) % slides.length;
+            } else if (diff < -50) {
+                index = (index - 1 + slides.length) % slides.length;
+            }
+
+            track.style.transform = `translateX(-${index * 100}%)`;
+            sliderInterval = setInterval(moveSlide, 4000);
+            isDragging = false;
+        });
+    </script>
+
+
 </body>
 
 <!-- PAGE LOADER -->
@@ -210,7 +288,3 @@
 <script src="script.js"></script>
 
 </html>
-
-
-
-
