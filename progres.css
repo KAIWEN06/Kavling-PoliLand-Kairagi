@@ -1,3 +1,32 @@
+/* ================= BRAND HEADER ================= */
+.brand {
+  display: flex;
+  align-items: center;      /* sejajar atas–bawah */
+  gap: 10px;                /* jarak logo ↔ teks (pas) */
+}
+
+.brand-logo {
+  width: 34px;              /* ukuran ideal desktop */
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+.brand-text {
+  color: #917b34;
+  font-weight: 700;
+  font-size: 1.1rem;        /* tidak terlalu besar/kecil */
+  letter-spacing: 1px;
+  line-height: 1;           /* sejajar rapi */
+  white-space: nowrap;      /* tidak turun baris */
+  transition: color 0.45s ease-in-out;
+}
+
+.brand-text:hover {
+  color: #E6C87A;
+}
+
+
+
 /* ================= DOCUMENTATION (ULTRA REFINED) ================= */
 .documentation {
   padding: 90px 0;
@@ -65,6 +94,18 @@
 }
 
 /* RESPONSIVE */
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 28px;           /* sedikit lebih kecil di HP */
+  }
+
+  .brand-text {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+
 @media (min-width: 768px) {
   .doc-gallery {
     grid-template-columns: repeat(2, 1fr);
