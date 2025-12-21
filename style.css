@@ -53,6 +53,35 @@ body {
   text-decoration: none;
 }
 
+/* ================= BRAND HEADER ================= */
+.brand {
+  display: flex;
+  align-items: center;      /* sejajar atas–bawah */
+  gap: 10px;                /* jarak logo ↔ teks (pas) */
+}
+
+.brand-logo {
+  width: 34px;              /* ukuran ideal desktop */
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+.brand-text {
+  color: #917b34;
+  font-weight: 700;
+  font-size: 1.1rem;        /* tidak terlalu besar/kecil */
+  letter-spacing: 1px;
+  line-height: 1;           /* sejajar rapi */
+  white-space: nowrap;      /* tidak turun baris */
+  transition: color 0.45s ease-in-out;
+}
+
+.brand-text:hover {
+  color: #E6C87A;
+}
+
+
+
 /* ================= HERO (FULL SCREEN FIX) ================= */
 .hero {
   position: relative;
@@ -291,8 +320,63 @@ body {
   box-shadow: 0 12px 28px rgba(0,0,0,0.3);
 }
 
+/* ================= PAGE LOADER ================= */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #2f4036; /* sama dengan header & footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#page-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* CONTENT */
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.loader-logo {
+  width: 150px;
+  height: auto;
+}
+
+/* ANIMATION */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 /* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 28px;           /* sedikit lebih kecil di HP */
+  }
+
+  .brand-text {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+}
+
 @media (min-width: 768px) {
   .feature-item {
     grid-template-columns: 1fr 1fr;
@@ -336,4 +420,3 @@ body {
     display: none;
   }
 }
-
