@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png">
-
   <meta charset="UTF-8">
   <title>Info Kavling</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png">
 
   <style>
     body {
@@ -22,10 +19,10 @@
     .card {
       max-width: 650px;
       margin: auto;
-      background: #ffffff;
+      background: #fff;
       padding: 22px;
       border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 30px rgba(0,0,0,.1);
     }
 
     .logo {
@@ -39,7 +36,7 @@
 
     h1 {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .row {
@@ -60,11 +57,11 @@
       color: #fff;
     }
 
-    .tersedia { background: #2ecc71; }
-    .booking  { background: #f39c12; }
-    .terjual  { background: #e74c3c; }
+    .tersedia { background:#2ecc71; }
+    .booking  { background:#f39c12; }
+    .terjual  { background:#e74c3c; }
 
-    /* ===== SERTIFIKAT (SOLUSI 1) ===== */
+    /* ===== SERTIFIKAT ===== */
     .doc-wrap {
       position: relative;
       margin-top: 15px;
@@ -74,27 +71,25 @@
 
     .doc-wrap iframe {
       width: 100%;
-      height: 380px;
+      height: 420px;
       border: none;
     }
 
-    /* Overlay transparan untuk mengurangi interaksi */
     .doc-overlay {
       position: absolute;
       inset: 0;
-      pointer-events: none; /* tetap bisa scroll */
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.15),
-        rgba(255,255,255,0)
-      );
+      pointer-events: none;
     }
 
-    .doc-note {
+    .legal-warning {
+      margin-top: 10px;
+      padding: 10px 12px;
       font-size: 12px;
-      color: #666;
-      margin-top: 8px;
-      text-align: center;
+      line-height: 1.5;
+      color: #8a1f1f;
+      background: #fff0f0;
+      border-left: 4px solid #e74c3c;
+      border-radius: 6px;
     }
 
     .wa-btn {
@@ -110,124 +105,137 @@
       text-decoration: none;
     }
 
+    .sold-note {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #ffeaea;
+      color: #c0392b;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
     .footer {
       text-align: center;
       font-size: 14px;
-      margin-top: 18px;
+      margin-top: 20px;
       color: #555;
     }
-    
-    .legal-warning {
-  margin-top: 10px;
-  padding: 10px 12px;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #8a1f1f;
-  background: #fff0f0;
-  border-left: 4px solid #e74c3c;
-  border-radius: 6px;
-  }    
-
-    
   </style>
 </head>
 
 <body>
 
-  <div class="card">
+<div class="card">
 
-    <!-- LOGO -->
-    <div class="logo">
-      <img src="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png" alt="Logo">
-    </div>
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png" alt="Logo">
+  </div>
 
-    <h1>Detail Kavling</h1>
+  <h1>Detail Kavling</h1>
 
-    <div class="row"><span class="label">Blok:</span> <span id="blok">-</span></div>
-    <div class="row"><span class="label">Nomor:</span> <span id="nomor">-</span></div>
-    <div class="row"><span class="label">Luas:</span> <span id="luas">-</span></div>
-    <div class="row"><span class="label">Harga:</span> Rp <span id="harga">-</span></div>
-    <div class="row">
-      <span class="label">Status:</span>
-      <span id="status" class="status">-</span>
-    </div>
+  <div class="row"><span class="label">Blok:</span> <span id="blok">-</span></div>
+  <div class="row"><span class="label">Nomor:</span> <span id="nomor">-</span></div>
+  <div class="row"><span class="label">Luas:</span> <span id="luas">-</span></div>
 
-    <!-- SERTIFIKAT (GOOGLE DRIVE PREVIEW) -->
+  <div class="row" id="harga-row">
+    <span class="label">Harga:</span> Rp <span id="harga">-</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Status:</span>
+    <span id="status" class="status">-</span>
+  </div>
+
+  <!-- CATATAN TERJUAL -->
+  <div id="sold-note" class="sold-note">
+    Kavling ini telah TERJUAL
+  </div>
+
+  <!-- SERTIFIKAT -->
+  <div id="sertifikat-section">
+
     <div class="doc-wrap">
       <iframe id="sertifikat"></iframe>
       <div class="doc-overlay"></div>
     </div>
 
-<div class="legal-warning">
-  <strong>Peringatan Hukum</strong><br>
-  Dokumen sertifikat ini ditampilkan hanya untuk keperluan informasi.
-  Segala bentuk penyalinan, pengunduhan, distribusi, atau penyalahgunaan
-  tanpa izin tertulis dari pemilik yang sah merupakan tindakan melanggar hukum
-  dan dapat diproses sesuai ketentuan peraturan perundang-undangan yang berlaku.
-</div>
-
-
-    <!-- WHATSAPP -->
-    <a id="wa" class="wa-btn" href="#" target="_blank">
-      💬 Saya tertarik kavling ini
-    </a>
-
-    <div class="footer">
-      Info lebih lanjut: <br>
-      📞 6281356960253 | 📍Kairagi Dua, Kec. Mapanget, Kota Manado, Sulawesi Utara <br>
-      🌐 <a href="https://www.kavlingpolilandkairagi.com/" target="_blank">
-        https://www.kavlingpolilandkairagi.com/
-      </a>
+    <div class="legal-warning">
+      <strong>Peringatan Hukum</strong><br>
+      Dokumen sertifikat ini ditampilkan hanya untuk keperluan informasi.
+      Segala bentuk penyalinan, pengunduhan, distribusi, atau penyalahgunaan
+      tanpa izin tertulis dari pemilik yang sah merupakan tindakan melanggar hukum
+      dan dapat diproses sesuai ketentuan peraturan perundang-undangan yang berlaku.
     </div>
 
   </div>
 
-  <script>
-    // ===== DISABLE KLIK KANAN (BASIC DETERRENT) =====
-    document.addEventListener('contextmenu', e => e.preventDefault());
+  <!-- WHATSAPP -->
+  <a id="wa" class="wa-btn" href="#" target="_blank">
+    💬 Saya tertarik kavling ini
+  </a>
 
-    const SPREADSHEET_ID = "1mATuMHaoL40wGVdoLhmqpNAYq2trKnyIA4BS3Z1BW20";
-    const SHEET_NAME = "Sheet1";
-    const NO_WA = "6281356960253";
+  <div class="footer">
+    📞 6281356960253 <br>
+    📍 Kairagi Dua, Mapanget, Manado <br>
+    🌐 <a href="https://www.kavlingpolilandkairagi.com/" target="_blank">
+      kavlingpolilandkairagi.com
+    </a>
+  </div>
 
-    const params = new URLSearchParams(window.location.search);
-    const kode = params.get("k") || params.get("kode");
+</div>
 
-    const SHEET_URL = `https://opensheet.elk.sh/${SPREADSHEET_ID}/${SHEET_NAME}`;
+<script>
+  // Disable klik kanan
+  document.addEventListener("contextmenu", e => e.preventDefault());
 
-    fetch(SHEET_URL)
-      .then(res => res.json())
-      .then(data => {
-        const kavling = data.find(item => {
-          const gabung = String(item.blok).trim() + String(item.nomor).trim();
-          return gabung === kode;
-        });
+  const SPREADSHEET_ID = "1mATuMHaoL40wGVdoLhmqpNAYq2trKnyIA4BS3Z1BW20";
+  const SHEET_NAME = "Sheet1";
+  const NO_WA = "6281356960253";
 
-        if (!kavling) {
-          alert("Data kavling tidak ditemukan");
-          return;
-        }
+  const params = new URLSearchParams(window.location.search);
+  const kode = params.get("k") || params.get("kode");
 
-        document.getElementById("blok").innerText = kavling.blok;
-        document.getElementById("nomor").innerText = kavling.nomor;
-        document.getElementById("luas").innerText = kavling.luas;
-        document.getElementById("harga").innerText =
-          Number(kavling.harga).toLocaleString("id-ID");
+  const SHEET_URL = `https://opensheet.elk.sh/${SPREADSHEET_ID}/${SHEET_NAME}`;
 
-        const statusEl = document.getElementById("status");
-        statusEl.innerText = kavling.status;
-        statusEl.classList.add(kavling.status);
+  fetch(SHEET_URL)
+    .then(res => res.json())
+    .then(data => {
+      const kavling = data.find(item =>
+        String(item.blok).trim() + String(item.nomor).trim() === kode
+      );
 
-        // WAJIB: pakai /preview (bukan /view)
+      if (!kavling) {
+        alert("Data kavling tidak ditemukan");
+        return;
+      }
+
+      document.getElementById("blok").innerText = kavling.blok;
+      document.getElementById("nomor").innerText = kavling.nomor;
+      document.getElementById("luas").innerText = kavling.luas;
+      document.getElementById("harga").innerText =
+        Number(kavling.harga).toLocaleString("id-ID");
+
+      const statusEl = document.getElementById("status");
+      statusEl.innerText = kavling.status;
+      statusEl.classList.add(kavling.status);
+
+      // JIKA TERJUAL
+      if (kavling.status === "terjual") {
+        document.getElementById("harga-row").style.display = "none";
+        document.getElementById("wa").style.display = "none";
+        document.getElementById("sertifikat-section").style.display = "none";
+        document.getElementById("sold-note").style.display = "block";
+      } else {
         document.getElementById("sertifikat").src = kavling.sertifikat;
-
-        const pesan = `Halo, saya tertarik dengan kavling Blok ${kavling.blok} Nomor ${kavling.nomor}. Mohon info lanjut.`;
+        const pesan = `Halo, saya tertarik kavling Blok ${kavling.blok} Nomor ${kavling.nomor}. Mohon info lanjut.`;
         document.getElementById("wa").href =
           `https://wa.me/${NO_WA}?text=${encodeURIComponent(pesan)}`;
-      });
-  </script>
+      }
+    });
+</script>
 
 </body>
 </html>
-
-
