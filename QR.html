@@ -145,7 +145,8 @@
         const NO_WA = "6281356960253"; // ganti nomor WA (format 62)
 
         const params = new URLSearchParams(window.location.search);
-        const kode = params.get("kode");
+        const kode = params.get("k") || params.get("kode");
+
 
         const SHEET_URL = `https://opensheet.elk.sh/${SPREADSHEET_ID}/${SHEET_NAME}`;
 
@@ -183,3 +184,4 @@
 </body>
 
 </html>
+
