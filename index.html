@@ -2,306 +2,184 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- FAVICON -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/foto/Header/logo header.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/foto/Header/logo header.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/foto/Header/logo header.png">
-    <meta name="theme-color" content="#2f4036">
-    
-    <title>POLILAND Kairagi | Tanah Kavling Strategis & Legal</title>
-    <meta name="description"
-        content="Tanah kavling Poliland Kairagi dengan lokasi strategis, SHM terpecah, infrastruktur siap. Ideal untuk hunian dan investasi.">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Info Kavling</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f5f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 650px;
+            margin: auto;
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .logo img {
+            max-height: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .row {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .tersedia {
+            background: #2ecc71;
+        }
+
+        .booking {
+            background: #f39c12;
+        }
+
+        .terjual {
+            background: #e74c3c;
+        }
+
+        iframe {
+            width: 100%;
+            height: 380px;
+            border: none;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
+        .wa-btn {
+            display: block;
+            margin-top: 18px;
+            background: #25d366;
+            color: #fff;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 18px;
+            color: #555;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="container">
-            <div class="brand">
-                <img src="/assets/foto/Header/logo header.png" alt="Logo Poliland Kairagi" class="brand-logo">
-                <span class="brand-text">POLILAND KAIRAGI</span>
-            </div>
+    <div class="card">
 
-            <a href="https://wa.me/6281356960253" class="btn-wa">Hubungi</a>
+        <!-- LOGO -->
+        <div class="logo">
+            <!-- ganti logo.png dengan logo kamu -->
+            <img src="logo.png" alt="Logo">
         </div>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="overlay"></div>
+        <h1>Detail Kavling</h1>
 
-        <div class="container hero-content">
-            <img src="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png" alt="Poliland Kairagi"
-                class="hero-logo">
-
-            <h2>Tanah Kavling Strategis<br>Siap Bangun & Legal</h2>
-
-            <p>Lokasi dekat pusat kota • SHM Terpecah • Aman untuk Investasi</p>
-
-            <a href="https://wa.me/6281356960253" class="btn-primary">
-                Konsultasi WhatsApp
-            </a>
+        <div class="row"><span class="label">Blok:</span> <span id="blok">-</span></div>
+        <div class="row"><span class="label">Nomor:</span> <span id="nomor">-</span></div>
+        <div class="row"><span class="label">Luas:</span> <span id="luas">-</span></div>
+        <div class="row"><span class="label">Harga:</span> Rp <span id="harga">-</span></div>
+        <div class="row">
+            <span class="label">Status:</span>
+            <span id="status" class="status">-</span>
         </div>
-    </section>
 
-    <!-- LOCATION SLIDER -->
-    <section class="location-slider">
-        <div class="container">
+        <iframe id="sertifikat"></iframe>
 
-            <h3 class="slider-title">Lokasi Poliland Kairagi</h3>
-            <p class="slider-subtitle">
-                Gambaran langsung lokasi dan lingkungan sekitar kavling Poliland Kairagi.
-            </p>
+        <!-- WHATSAPP -->
+        <a id="wa" class="wa-btn" href="#" target="_blank">
+            💬 Saya tertarik kavling ini
+        </a>
 
-            <div class="slider-wrapper" id="slider">
-                <div class="slide-track">
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlaffuNIUKzG5CpZWE6xzT8L6xCFvWEw43PVEmtjF9Ot9r4SULvOy-KMSnM2nEpyFpi0G_1N4RBmlzdo9DjDA6tM7tkOTlPf9GEeczN2aNx5WPQ4Vw3fyWXuxDsbVbU9zJBKBnZVD62iPDTtJp-WMnWAwR_nNdj30U_dahB2qrfYPfbvVqz1SBiuuc5xU/s16000/DSCF0390.jpg" alt="Lokasi Poliland Kairagi">
-                    </div>
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbP3P1SBzkxsTuyEnuLP1vQ_FzhCHwlmR-B3T7TrNHCLdGi5ctS-nwYEob_XT1Zl_ROge9VYWhyphenhypheneN2-_5uiNhmwbHLsuVi0TBXVzykyuxIT92Y8WemszsxD23yIjfmh0EfW6hwYCym5s4k89dyY_ScAhR7OHoST-g6R2mzpTQBcvAT1LvqTdL8GP0FJ2Q/s16000/DSCF0399.jpg" alt="Akses jalan Poliland">
-                    </div>
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4HVFFRwPgpfKDVaJ1k6qKkM95pZLALgFtRKmGj107gvDHOzVAJeu1xwe0WHtuPsLZEqqX3duPR4OQBp9NP27koXLz1eBzlP9VJKyox1cIvu0P7kgWa3JSlhVJsVz4fzi3MdvM3Ag-OLG9pe7SDQi7ByUQw-nVdwaMpBfxXuPNqRT0xdxTMTAKg2wtgz8/s16000/DSCF0401.jpg">
-                    </div>
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw219iuqjtdB0TlGAwaVDJlgLbrqRwQiSmSOIWRLmWqTPIBbi4bOV9B_OlLY2vz1ilLUF0F8cYRKZF8SHMoK6fIeWl6Mi2God8-Jf7CaDmEWDjXYJX4HJ1kcWNZLzBAdTOvOpJ6lV4jcIgSCXW9uooSBei5nlBP_Uoe9sZhDDCiBMFwzuj_soWSnjEPd0/s16000/DSCF0407.jpg">
-                    </div>
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAqpJ1RDuVXvzoz3dVR2Ahk9W-xD9vgRhwdBt0M8Q9b_fKeDArgNNhgTTqJQC5OElLHBYL-yZax6NdNrJi7-GWqBQAIMM8UZxpOYemR0I1PlD3rPBMSb-8_N7gWPKfUQ-iEd6IJPOx2zBzBW5jP0636AIhLagI-iaA4QMgKbYVggdHJ6jfB7rM8yvZNko/s16000/DSCF0413.jpg">
-                    </div>
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6wk3U9OBmTKySPwviprLVR39os1ESgrtpfnB4w_ReRC8b98kFdeDWxzx5oH79PUIyasWYqIvTtKIjH7TGzkA6WnK3n6syrvH8aWQQNMULfFLc2NnSpLyyRsy_Nsnd9x002NBfKBBmw8IVHSIqRN09E8JL_yOItPe4pjTP3TxSlHKjixmKB3P2V0Ho-Xk/s16000/IMG-20251219-WA0030.jpg">
-                    </div>
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhLtqz2m-YrENriCaKYZ4VugIkc4MoV86FmfHs9dKT3HDF2wJZJ5gVynlrRVm8VE-LYZ4ovhCZNjvXzn8FoCyN_2rkz45FATzQTokXQnT9zCjgYPr2YqIwE1EoGyH4TRJmA6tz1Ob8ADlquzX6eoB06X6oHKi4KSoNM33ap8X439pTbi38PtezUmibEQw/s16000/org_13bb04ae5bedad6f_1766205330000.jpg"
-                            alt="Area kavling Poliland">
-                    </div>
-                    <div class="slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwOSj0qnRW1TokO0kAgVlOHDh467amjGwS9c4EUpuEHof5yapptCYgFOdQmdGrFfg5zgLTOOWYHIrtwAU5Zo8PF6RRCSPVT1-UbBHOq1t-QgQ28vEAlnu_H5CuuTwAFto5Ad6a6GJOzimY9YhUvo9LG4SKAsksChXH07Wnrpzi6hRyArWWhzlaC5TfdzY/s16000/org_d4e9c54188ee1e6b_1766205092000.jpg"
-                            alt="Area kavling Poliland">
-                    </div>
-                </div>
-            </div>
-
+        <div class="footer">
+            Info lebih lanjut: <br>
+            📞 6281356960253 | 📍Kairagi Dua, Kec. Mapanget, Kota Manado, Sulawesi Utara <br> 🌐 <a
+                href="https://www.kavlingpolilandkairagi.com/"
+                target="_blank">https://www.kavlingpolilandkairagi.com/</a><br>
         </div>
-    </section>
 
-
-    <!-- KEUNGGULAN -->
-    <section class="features">
-        <div class="container">
-            <h3 class="features-title">Kenapa harus PoliLand Kairagi?</h3>
-
-            <div class="feature-item">
-                <div class="feature-image">
-                    <img src="/assets/foto/Lokasi Strategis/WhatsApp Image 2025-12-19 at 18.23.28_4cc89af6.jpg"
-                        alt="Lokasi Strategis">
-                </div>
-                <div class="feature-content">
-                    <h4>Lokasi Strategis</h4>
-                    <p>
-                        PoliLand Kairagi berada di kawasan Kairagi, salah satu zona pertumbuhan baru di Kota Manado.
-                        Dekat pusat bisnis, pendidikan, fasilitas kesehatan, dan pusat perbelanjaan.
-                        Lokasi ini menawarkan akses cepat tanpa harus terjebak kemacetan pusat kota.
-                    </p>
-                </div>
-            </div>
-
-            <div class="feature-item reverse">
-                <div class="feature-image">
-                    <img src="assets/foto/legalitas/LEGALITAS.jpeg"
-                        alt="Legalitas SHM Terpecah">
-                </div>
-                <div class="feature-content">
-                    <h4>Legalitas Jelas, SHM Sudah Terpecah</h4>
-                    <p>
-                        Setiap kavling memiliki Sertifikat Hak Milik (SHM) terpisah.
-                        Proses jual beli aman, transparan, dan bebas sengketa.
-                        Kavling siap dibangun atau dijadikan aset investasi jangka panjang.
-                    </p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-image">
-                    <img src="assets/foto/PROGRES/04.JPG" alt="Infrastruktur Poliland Kairagi">
-                </div>
-
-                <div class="feature-content">
-                    <h4>Infrastruktur Siap, Akses Nyaman & Aman</h4>
-                    <p>
-                        Kenyamanan kawasan dimulai dari infrastruktur yang baik. Poliland Kairagi
-                        telah dilengkapi dengan jalan lingkungan selebar ±5 meter yang nyaman
-                        untuk kendaraan roda dua maupun roda empat.
-                        <br><br>
-                        Selain itu, tersedia sistem drainase di dua sisi jalan yang dirancang
-                        untuk mencegah genangan air dan menjaga lingkungan tetap rapi, bersih,
-                        dan aman, terutama saat musim hujan.
-                        <br><br>
-                        Poliland Kairagi adalah kawasan siap huni dan siap bangun dengan
-                        perencanaan infrastruktur yang matang.
-                    </p>
-
-                    <!-- TOMBOL PROGRES -->
-                    <a href="progres.html" class="btn-secondary">Lihat Progres Infrastruktur</a>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
-    <!-- PETA UNIT TERJUAL -->
-    <section class="siteplan">
-        <div class="container">
-
-            <h3 class="siteplan-title">Peta Unit Kavling</h3>
-            <p class="siteplan-subtitle">
-                Peta kavling PoliLand Kairagi berikut menunjukkan posisi unit yang telah terjual.
-                Unit dengan tanda <span class="sold-label">SOLD</span> telah terjual.
-            </p>
-
-            <div class="siteplan-wrapper">
-                <img src="assets/foto/terjual/TERJUAL 1.jpg"
-                    alt="Peta kavling Poliland Kairagi dan status unit terjual">
-            </div>
-
-            <p class="siteplan-note">
-                *Status unit dapat berubah sewaktu-waktu. Hubungi kami untuk informasi ketersediaan terbaru.
-            </p>
-
-        </div>
-    </section>
-
-
-    <!-- CTA -->
-    <section class="cta">
-        <div class="container">
-            <h3>Siap Punya Tanah Sendiri?</h3>
-            <p>Hubungi kami sekarang untuk info harga dan survei kavling.</p>
-            <a href="https://wa.me/6281356960253" class="btn-primary">Chat WhatsApp</a>
-            <a href="https://maps.app.goo.gl/A8Cvb2GQ2bEf5aGD9?g_st=awb" class="btn-primary"
-                style="margin-left: 16px;">Lihat Lokasi</a>
-        </div>
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p class="footer-title">© 2026 POLILAND Kairagi</p>
-
-        <div class="footer-social">
-
-            <a href="https://wa.me/6281356960253" target="_blank" title="WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </a>
-
-            <a href="mailto:kavlingpolilandkairagi@gmail.com" title="Email">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Email</span>
-            </a>
-
-            <a href="https://www.facebook.com/share/1Bp4bDAPWo/" target="_blank" title="Facebook">
-                <i class="fa-brands fa-facebook"></i>
-                <span>Facebook</span>
-            </a>
-
-            <a href="https://www.instagram.com/kavlingpolilandkairagi" target="_blank" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-                <span>Instagram</span>
-            </a>
-
-            <a href="https://www.tiktok.com/@poliland.kairagi" target="_blank" title="TikTok">
-                <i class="fa-brands fa-tiktok"></i>
-                <span>TikTok</span>
-            </a>
-
-        </div>
-    </footer>
-
-
-
-    <!-- FLOATING WHATSAPP -->
-    <a href="https://wa.me/6281356960253" class="wa-float" aria-label="Chat WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    </div>
 
     <script>
-        const track = document.querySelector(".slide-track");
-        const slides = document.querySelectorAll(".slide");
-        let index = 0;
-        let startX = 0;
-        let isDragging = false;
+        const SPREADSHEET_ID = "1mATuMHaoL40wGVdoLhmqpNAYq2trKnyIA4BS3Z1BW20";
+        const SHEET_NAME = "Sheet1";
+        const NO_WA = "6281356960253"; // ganti nomor WA (format 62)
 
-        function moveSlide() {
-            index = (index + 1) % slides.length;
-            track.style.transform = `translateX(-${index * 100}%)`;
-        }
+        const params = new URLSearchParams(window.location.search);
+        const kode = params.get("kode");
 
-        // Auto slide
-        let sliderInterval = setInterval(moveSlide, 4000);
+        const SHEET_URL = `https://opensheet.elk.sh/${SPREADSHEET_ID}/${SHEET_NAME}`;
 
-        // Touch events (swipe)
-        track.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-            clearInterval(sliderInterval);
-        });
+        fetch(SHEET_URL)
+            .then(res => res.json())
+            .then(data => {
+                const kavling = data.find(item => {
+                    const gabung = String(item.blok).trim() + String(item.nomor).trim();
+                    return gabung === kode;
+                });
 
-        track.addEventListener("touchend", (e) => {
-            if (!isDragging) return;
-            let endX = e.changedTouches[0].clientX;
-            let diff = startX - endX;
+                if (!kavling) {
+                    alert("Data kavling tidak ditemukan");
+                    return;
+                }
 
-            if (diff > 50) {
-                index = (index + 1) % slides.length;
-            } else if (diff < -50) {
-                index = (index - 1 + slides.length) % slides.length;
-            }
+                document.getElementById("blok").innerText = kavling.blok;
+                document.getElementById("nomor").innerText = kavling.nomor;
+                document.getElementById("luas").innerText = kavling.luas;
+                document.getElementById("harga").innerText =
+                    Number(kavling.harga).toLocaleString("id-ID");
 
-            track.style.transform = `translateX(-${index * 100}%)`;
-            sliderInterval = setInterval(moveSlide, 4000);
-            isDragging = false;
-        });
+                const statusEl = document.getElementById("status");
+                statusEl.innerText = kavling.status;
+                statusEl.classList.add(kavling.status);
+
+                document.getElementById("sertifikat").src = kavling.sertifikat;
+
+                const pesan = `Halo, saya tertarik dengan kavling Blok ${kavling.blok} Nomor ${kavling.nomor}. Mohon info lanjut.`;
+                document.getElementById("wa").href =
+                    `https://wa.me/${NO_WA}?text=${encodeURIComponent(pesan)}`;
+            });
     </script>
-
 
 </body>
 
-<!-- PAGE LOADER -->
-<div id="page-loader">
-    <div class="loader-content">
-        <img src="/assets/Logo/Screenshot_2025-12-19_214202-removebg-preview.png" alt="Poliland Kairagi"
-            class="loader-logo">
-    </div>
-</div>
-
-
-<script src="script.js"></script>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
